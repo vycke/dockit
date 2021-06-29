@@ -43,6 +43,11 @@
     minimatch "^3.0.4"
     strip-json-comments "^3.1.1"
 
+"@iarna/toml@^2.2.5":
+  version "2.2.5"
+  resolved "https://registry.yarnpkg.com/@iarna/toml/-/toml-2.2.5.tgz#b32366c89b43c6f8cefbdefac778b9c828e3ba8c"
+  integrity sha512-trnsAYxU3xnS1gPHPyU961coFyLkh4gAD/0zQ5mymY4yOZ+CYvsPqUbOFSw0aDM4y0tV7tiFxL/1XfXPNC6IPg==
+
 "@rollup/pluginutils@^4.1.0":
   version "4.1.0"
   resolved "https://registry.yarnpkg.com/@rollup/pluginutils/-/pluginutils-4.1.0.tgz#0dcc61c780e39257554feb7f77207dceca13c838"
@@ -51,12 +56,13 @@
     estree-walker "^2.0.1"
     picomatch "^2.2.2"
 
-"@sveltejs/adapter-netlify@^1.0.0-next.0":
-  version "1.0.0-next.0"
-  resolved "https://registry.yarnpkg.com/@sveltejs/adapter-netlify/-/adapter-netlify-1.0.0-next.0.tgz#c4d24d60b459e13f09d43f18569302a8fe6842e4"
-  integrity sha512-CxjWlGkNyQzEB9LsXN+MvF1Z+SHRb16cNZL8sy5bUcytDcf7ETjlgKdaxks7ygWBhI/wtx4Mcxr+uIt50p8vag==
+"@sveltejs/adapter-netlify@^1.0.0-next.17":
+  version "1.0.0-next.17"
+  resolved "https://registry.yarnpkg.com/@sveltejs/adapter-netlify/-/adapter-netlify-1.0.0-next.17.tgz#51fed8ea7bbc80377d438f3f6b651c3941a73930"
+  integrity sha512-HDFdNKQ87d1pdh9da0vIKDUS4JSYLXZslk5vM2LU2Gwdm+CLRF+IDqZgavYdZsuMSZp/adFX82j7aV03gXABWQ==
   dependencies:
-    toml "^3.0.0"
+    "@iarna/toml" "^2.2.5"
+    esbuild "^0.12.5"
 
 "@sveltejs/kit@next":
   version "1.0.0-next.118"
@@ -310,6 +316,11 @@ enquirer@^2.3.5:
   integrity sha512-yjNnPr315/FjS4zIsUxYguYUPP2e1NK4d7E7ZOLiyYCcbFBiTMyID+2wvm2w6+pZ/odMA7cRkjhsPbltwBOrLg==
   dependencies:
     ansi-colors "^4.1.1"
+
+esbuild@^0.12.5:
+  version "0.12.12"
+  resolved "https://registry.yarnpkg.com/esbuild/-/esbuild-0.12.12.tgz#2c3815c508e20f771cf6b2ffb03aa7349e651657"
+  integrity sha512-fdB/8HRg9u95Zi4/qV+osrfzpvLzubFKUr8SkZf/kUKImLiX61Y7qBzV14FCKphFk7YoXWY85nbPGkI6pq+Zeg==
 
 esbuild@^0.12.8:
   version "0.12.10"
@@ -978,11 +989,6 @@ to-regex-range@^5.0.1:
   integrity sha512-65P7iz6X5yEr1cwcgvQxbbIw7Uk3gOy5dIdtZ4rDveLqhrdJP+Li/Hx6tyK0NEb+2GCyneCMJiGqrADCSNk8sQ==
   dependencies:
     is-number "^7.0.0"
-
-toml@^3.0.0:
-  version "3.0.0"
-  resolved "https://registry.yarnpkg.com/toml/-/toml-3.0.0.tgz#342160f1af1904ec9d204d03a5d61222d762c5ee"
-  integrity sha512-y/mWCZinnvxjTKYhJ+pYxwD0mRLVvOtdS2Awbgxln6iEnt4rk0yBxeSBHkGJcPucRiG0e55mwWp+g/05rsrd6w==
 
 type-check@^0.4.0, type-check@~0.4.0:
   version "0.4.0"
