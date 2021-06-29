@@ -1,0 +1,56 @@
+// List of colors that is used to generate utility classes, but also generate
+// CSS custom properties
+$colors: (
+	'gray-100': #fafafa,
+	'gray-200': #e5eaed,
+	'gray-300': #c7d1dc,
+	'gray-400': #a7b1bc,
+	'gray-500': #242f3a,
+	'gray-600': #0e141e,
+	'blue': #5467ff,
+	'blay': #81a3c1,
+	'green-100': #7dc4a8,
+	'green-200': #24987e
+);
+
+// Typography system (golden ratio)
+$font-sizes: (
+	'0': 1,
+	'00': 0.8,
+	'000': 0.64,
+	'1': 1.25,
+	'2': 1.563,
+	'3': 1.953
+);
+
+$spacing: (
+	'none': 0,
+	'0': 1,
+	'00': 0.75,
+	'000': 0.5,
+	'1': 1.25,
+	'2': 2,
+	'3': 3
+);
+
+$sizes: (
+	'13': 13rem,
+	'20': 20rem,
+	'40': 40rem
+);
+
+$font-families: (
+	monospace: "Inconsolata, Menlo, Monaco, Consolas, 'Courier New', monospace",
+	serif: 'Georgia, serif',
+	sans-serif:
+		"system-ui, -apple-system, blinkmacsystemfont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif"
+);
+
+@use '../../node_modules/@crinkles/feo/feo.scss' with (
+	$fluid: false,
+	$feo-colors: $colors,
+	$feo-font-sizes: $font-sizes,
+	$feo-spacing: $spacing,
+	$feo-sizes: $sizes,
+	$feo-font-families: $font-families
+);

@@ -1,0 +1,42 @@
+/*******
+* Generic styling
+*******/
+html,
+body {
+	visibility: visible !important; /* hack to avoid Flash Of Unstyled Content FOUC */
+	min-width: 15rem;
+	color: var(--color-gray-600);
+	font-family: var(--sans-serif);
+	font-size: var(--text-0);
+	background-color: var(--color-gray-200);
+}
+
+// HEADINGS
+h1,
+h2,
+h3 {
+	width: 100%;
+	line-height: 1.4;
+}
+
+h1 {
+	font-size: var(--text-3);
+}
+
+h2 {
+	font-size: var(--text-2);
+}
+
+h3 {
+	font-size: var(--text-1);
+}
+
+// LINKS
+a,
+a > *,
+a:link,
+a:visited,
+a:active {
+	touch-action: manipulation;
+	text-decoration: none;
+}
