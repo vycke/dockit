@@ -14,7 +14,7 @@
 <nav class="p-0 flex-col items-start">
 	<div class="flex-row items-center full-width mb-0 px-0">
 		<button class="flex-grow text-left" on:click={toggle}><Icon name={icon} /></button>
-		<span class="monospace uppercase text-1">DOCS</span>
+		<span class="monospace uppercase text-1">DOCKIT</span>
 	</div>
 
 	<ul class:visible={open} class="flow-y flow-g-000 full-width bg-gray-200">
