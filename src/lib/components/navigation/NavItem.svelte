@@ -10,7 +10,9 @@
 <li
 	class:selected={href === path}
 	class:bg-gray-300={href === path}
-	class="nav-item | py-000 px-00 radius-00 hover:bg-gray-300 transition"
+	class:py-000={icon}
+	class:py-0000={!icon}
+	class="nav-item | px-00 radius-00 hover:bg-gray-300 transition"
 >
 	<a {href} class="flow-x flow-g-0 items-center" on:click>
 		{#if icon}

@@ -7,10 +7,8 @@ $colors: (
 	'gray-400': #a7b1bc,
 	'gray-500': #242f3a,
 	'gray-600': #0e141e,
-	'blue': #5467ff,
-	'blay': #81a3c1,
 	'green-100': #7dc4a8,
-	'green-200': #24987e
+	'green-200': #0e6469
 );
 
 // Typography system (golden ratio)
@@ -28,15 +26,16 @@ $spacing: (
 	'0': 1,
 	'00': 0.75,
 	'000': 0.5,
+	'0000': 0.25,
 	'1': 1.25,
 	'2': 2,
 	'3': 3
 );
 
 $sizes: (
-	'13': 13rem,
-	'20': 20rem,
-	'40': 40rem
+	'0': 15rem,
+	'1': 25rem,
+	'2': 40rem
 );
 
 $font-families: (
