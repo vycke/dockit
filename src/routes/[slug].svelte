@@ -14,7 +14,9 @@
 </script>
 
 <script>
+	import Icon from '$lib/components/Icon.svelte';
 	import Page from '$lib/components/Page.svelte';
+	import { categories } from '$lib/constants';
 	export let doc;
 
 	$: modifiedAt = new Date(doc.modifiedAt).toLocaleString();
@@ -29,16 +31,28 @@
 	</div>
 
 	<div class="p-1 flex-col">
-		<span class="text-00 monospace uppercase">Category:</span>
-		<span class="capitalize">{doc.category}</span>
+		<span class="text-00 monospace uppercase text-green-200">Category:</span>
+		<div class="flex-row items-center">
+			<Icon
+				class="text-gray-400"
+				name={categories[doc.category] || 'circle'}
+				attrs={{ height: 18 }}
+			/>
+			<span class="capitalize ml-00">{doc.category}</span>
+		</div>
+
 		{#if doc.source}
-			<span class="text-00 monospace uppercase mt-1">Source:</span>
-			<a class="underline" href={doc.source}>{doc.source}</a>
+			<span class="text-00 monospace uppercase mt-1 text-green-200">Source:</span>
+			<div class="flex-row items-center">
+				<Icon class="text-gray-400" name="github" attrs={{ height: 18 }} />
+				<a class="underline ml-00" href={doc.source}>{doc.source}</a>
+			</div>
 		{/if}
-		<span class="text-00 monospace uppercase mt-1">Last modified:</span>
-		<span>{modifiedAt}</span>
-		<span class="text-00 monospace uppercase mt-1">Created:</span>
-		<span>{createdAt}</span>
+		<span class="text-00 monospace uppercase mt-1 text-green-200">Last modified:</span>
+		<div class="flex-row items-center">
+			<Icon class="text-gray-400" name="calendar" attrs={{ height: 18 }} />
+			<span class="capitalize ml-00">{modifiedAt}</span>
+		</div>
 	</div>
 </Page>
 
