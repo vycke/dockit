@@ -28,13 +28,13 @@
 			{@html doc.html}
 		</article>
 
-		<aside class="p-1 flex-col text-00">
-			<span class="monospace uppercase text-accent">Outline:</span>
+		<aside class="p-1 flex-col">
+			<span class="monospace text-00 uppercase text-accent">Outline:</span>
 			{#each doc.headers as header}
 				<a class="header" href="#{header.id}">» {header.label}</a>
 			{/each}
 
-			<span class="monospace uppercase text-accent mt-3">Category:</span>
+			<span class="monospace text-00 uppercase text-accent mt-3">Category:</span>
 			<div class="flex-row items-center">
 				<Icon
 					class="text-gray-400"
@@ -45,13 +45,13 @@
 			</div>
 
 			{#if doc.source}
-				<span class="monospace uppercase mt-1 text-accent">Source:</span>
+				<span class="monospace text-00 uppercase mt-1 text-accent">Source:</span>
 				<div class="flex-row items-center">
 					<Icon class="text-gray-400" name="github" attrs={{ height: 18 }} />
 					<a class="ml-00" href={doc.source}>{doc.source}</a>
 				</div>
 			{/if}
-			<span class="monospace uppercase mt-1 text-accent">Last modified:</span>
+			<span class="monospace text-00 uppercase mt-1 text-accent">Last modified:</span>
 			<div class="flex-row items-center">
 				<Icon class="text-gray-400" name="calendar" attrs={{ height: 18 }} />
 				<span class="capitalize ml-00">{modifiedAt}</span>

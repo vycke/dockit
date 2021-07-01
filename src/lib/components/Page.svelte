@@ -15,4 +15,8 @@
 	h1 {
 		text-transform: capitalize;
 	}
+
+	main {
+		min-height: calc(100vh - 76px);
+	}
 </style>

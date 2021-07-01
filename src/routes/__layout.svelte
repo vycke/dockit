@@ -21,7 +21,7 @@
 	export let docs;
 </script>
 
-<div class="bg-back panel-l panel-s-00 panel-w-2" data-theme={$theme}>
+<div class="full-height bg-back panel-l panel-s-00 panel-w-2" data-theme={$theme}>
 	<Navigation {path} {docs} />
 	<slot />
 </div>

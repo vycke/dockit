@@ -30,7 +30,7 @@
 
 <nav class="p-1 flex-col items-start bg-back text-front" data-open={open}>
 	<div class="flex-row items-center full-width">
-		<button class="flex-grow text-left flex-row items-center" on:click={toggle}>
+		<button class="text-front flex-grow text-left flex-row items-center" on:click={toggle}>
 			<Icon name={icon} />
 		</button>
 		<div class="flex-row items-center">
@@ -59,7 +59,7 @@
 		<Switch
 			checked={$theme === 'dark'}
 			label="Dark mode?"
-			class="flow-grow"
+			class="flow-grow mt-1"
 			on:click={updateTheme}
 		/>
 		<li class="text-00 text-left">
