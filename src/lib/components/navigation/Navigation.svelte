@@ -16,16 +16,21 @@
 
 <nav class="p-1 flex-col items-start">
 	<div class="flex-row items-center full-width">
-		<button class="flex-grow text-left" on:click={toggle}><Icon name={icon} /></button>
+		<button class="flex-grow text-left flex-row items-center" on:click={toggle}
+			><Icon name={icon} /></button
+		>
 		<div class="flex-row items-center">
 			<a href="/" class="name | bold text-1">{name}</a>
-			<a href={source} class="monospace text-000 p-000 radius-000 border-gray-300 border-w-1 ml-0"
-				>v{version}</a
+			<a
+				href={source}
+				class="monospace lh-1 text-000 p-000 radius-000 border-gray-300 border-w-1 ml-0"
 			>
+				v{version}
+			</a>
 		</div>
 	</div>
 
-	<ul role="list" class:visible={open} class="mt-0 flow-y flow-g-000 full-width bg-gray-200">
+	<ul role="list" class:visible={open} class="mt-2 flow-y flow-g-000 full-width bg-gray-200">
 		{#each Object.keys(docs) as category, i}
 			<NavGroup
 				on:click={toggle}

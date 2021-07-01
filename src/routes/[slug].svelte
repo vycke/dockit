@@ -22,7 +22,11 @@
 </script>
 
 <Page title={doc.title}>
-	<div class="center center-w-2 | shadow bg-gray-100 radius-000 p-1">{@html doc.html}</div>
+	<div>
+		<article class="center center-g-1 center-w-3 py-1 shadow bg-gray-100 flow-y flow-g-1">
+			{@html doc.html}
+		</article>
+	</div>
 
 	<div class="p-1 flex-col">
 		<span class="text-00 monospace uppercase">Category:</span>
@@ -39,6 +43,10 @@
 </Page>
 
 <style>
+	article {
+		max-width: var(--size-3);
+	}
+
 	.capitalize {
 		text-transform: capitalize;
 	}
