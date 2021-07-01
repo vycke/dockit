@@ -20,39 +20,43 @@
 	export let doc;
 
 	$: modifiedAt = new Date(doc.modifiedAt).toLocaleString();
-	$: createdAt = new Date(doc.createdAt).toLocaleString();
 </script>
 
-<Page title={doc.title}>
-	<div>
-		<article class="center center-g-1 center-w-3 py-1 shadow bg-gray-100 flow-y flow-g-1">
+<Page title="{doc.category} > {doc.title}">
+	<div class="panel-r panel-s-0 panel-w-3 panel-g-2">
+		<article class="center center-w-3 center-g-1 shadow bg-gray-100 flow-y flow-g-1 radius-00 py-2">
 			{@html doc.html}
 		</article>
-	</div>
 
-	<div class="p-1 flex-col">
-		<span class="text-00 monospace uppercase text-green-200">Category:</span>
-		<div class="flex-row items-center">
-			<Icon
-				class="text-gray-400"
-				name={categories[doc.category] || 'circle'}
-				attrs={{ height: 18 }}
-			/>
-			<span class="capitalize ml-00">{doc.category}</span>
-		</div>
+		<aside class="p-1 flex-col text-00">
+			<span class="monospace uppercase text-green-200">Outline:</span>
+			{#each doc.headers as header}
+				<a class="header" href="#{header.id}">» {header.label}</a>
+			{/each}
 
-		{#if doc.source}
-			<span class="text-00 monospace uppercase mt-1 text-green-200">Source:</span>
+			<span class="monospace uppercase text-green-200 mt-3">Category:</span>
 			<div class="flex-row items-center">
-				<Icon class="text-gray-400" name="github" attrs={{ height: 18 }} />
-				<a class="underline ml-00" href={doc.source}>{doc.source}</a>
+				<Icon
+					class="text-gray-400"
+					name={categories[doc.category] || 'circle'}
+					attrs={{ height: 18 }}
+				/>
+				<span class="capitalize ml-00">{doc.category}</span>
 			</div>
-		{/if}
-		<span class="text-00 monospace uppercase mt-1 text-green-200">Last modified:</span>
-		<div class="flex-row items-center">
-			<Icon class="text-gray-400" name="calendar" attrs={{ height: 18 }} />
-			<span class="capitalize ml-00">{modifiedAt}</span>
-		</div>
+
+			{#if doc.source}
+				<span class="monospace uppercase mt-1 text-green-200">Source:</span>
+				<div class="flex-row items-center">
+					<Icon class="text-gray-400" name="github" attrs={{ height: 18 }} />
+					<a class="ml-00" href={doc.source}>{doc.source}</a>
+				</div>
+			{/if}
+			<span class="monospace uppercase mt-1 text-green-200">Last modified:</span>
+			<div class="flex-row items-center">
+				<Icon class="text-gray-400" name="calendar" attrs={{ height: 18 }} />
+				<span class="capitalize ml-00">{modifiedAt}</span>
+			</div>
+		</aside>
 	</div>
 </Page>
 
@@ -61,11 +65,21 @@
 		max-width: var(--size-3);
 	}
 
+	a.header:hover {
+		font-weight: 600;
+	}
+
 	.capitalize {
 		text-transform: capitalize;
 	}
 
-	a.underline {
-		text-decoration: underline;
+	:global(article h2 + p) {
+		margin-top: var(--spacing-00) !important;
+	}
+
+	:global(article img) {
+		max-width: min(100%, var(--center-width));
+		padding-left: 0;
+		padding-right: 0;
 	}
 </style>

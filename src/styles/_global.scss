@@ -38,5 +38,6 @@ a:link,
 a:visited,
 a:active {
 	touch-action: manipulation;
-	text-decoration: none;
+	text-decoration: underline;
+	text-decoration-color: var(--color-green-200);
 }

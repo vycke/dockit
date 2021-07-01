@@ -3,27 +3,31 @@ import fm from 'front-matter';
 import { resolve } from 'path';
 import renderer from '$lib/renderer';
 
-export async function getDoc(slug, html = true) {
+function getHeaders(html) {
+	const headers = [];
+	const elements = html.match(new RegExp('<h2(.*?)</h2>', 'g'));
+
+	elements.forEach((e) => {
+		const tokens = e
+			.replaceAll('</h2>', '')
+			.replaceAll('<h2', '')
+			.replaceAll('id="', '')
+			.split('">');
+		headers.push({ id: tokens[0].trim(), label: tokens[1].trim() });
+	});
+
+	return headers;
+}
+
+export async function getDoc(slug) {
 	const _path = resolve('docs', slug + '.md');
 	const src = await fs.readFile(_path, 'utf8');
 	const stats = await fs.stat(_path);
 	const { body, ...matter } = fm(src);
+	const html = renderer(body);
+	const headers = getHeaders(html);
 
-	if (!html)
-		return {
-			slug,
-			createdAt: stats.birthtime,
-			modifiedAt: stats.mtime,
-			...matter.attributes
-		};
-
-	return {
-		slug,
-		html: renderer(body),
-		createdAt: stats.birthtime,
-		modifiedAt: stats.mtime,
-		...matter.attributes
-	};
+	return { slug, html, headers, modifiedAt: stats.mtime, ...matter.attributes };
 }
 
 export async function getDocs() {

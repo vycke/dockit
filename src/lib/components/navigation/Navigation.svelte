@@ -20,7 +20,7 @@
 			<Icon name={icon} />
 		</button>
 		<div class="flex-row items-center">
-			<a href="/" class="name | bold text-1">{name}</a>
+			<a href="/" class="name | no-underline bold text-1">{name}</a>
 			<a
 				href={source}
 				class="monospace lh-1 text-000 p-000 radius-000 border-gray-300 border-w-1 ml-0"
@@ -45,13 +45,10 @@
 </nav>
 
 <style>
-	a.name {
-		color: var(--color-green-200);
-	}
-
 	nav {
 		position: sticky;
 		top: 0;
+		z-index: 100;
 	}
 
 	ul {
@@ -70,6 +67,10 @@
 	}
 
 	@media (max-width: 42rem) {
+		nav {
+			border-bottom: 1px solid var(--color-gray-300);
+		}
+
 		ul {
 			position: absolute;
 			top: 3.5rem;

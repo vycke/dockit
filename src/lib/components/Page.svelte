@@ -2,9 +2,17 @@
 	export let title = '';
 </script>
 
-<main class="p-1">
-	<h1 class="mb-1 text-1">{title}</h1>
-	<div class="panel-r panel-s-0 panel-w-3 panel-g-2">
-		<slot />
-	</div>
+<svelte:head>
+	<title>{title}</title>
+</svelte:head>
+
+<main class="center center-g-1 center-w-4 mb-2">
+	<h1 class="my-1">{title}</h1>
+	<slot />
 </main>
+
+<style>
+	h1 {
+		text-transform: capitalize;
+	}
+</style>

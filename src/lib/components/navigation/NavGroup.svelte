@@ -11,8 +11,8 @@
 </script>
 
 <li class="flow-x flow-g-00 items-center pb-000 {klass}">
-	<Icon name={icon} class="text-green-200" attrs={{ height: 20 }} />
-	<span class="text-00 monospace uppercase">{title}</span>
+	<Icon name={icon || 'circle'} class="text-green-200" attrs={{ height: 20 }} />
+	<span class="text-00 monospace uppercase text-green-200">{title}</span>
 </li>
 
 {#each items as item}

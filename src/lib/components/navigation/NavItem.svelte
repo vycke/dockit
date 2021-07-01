@@ -12,9 +12,10 @@
 	class:bg-gray-300={href === path}
 	class:py-000={icon}
 	class:py-0000={!icon}
+	class:text-00={!icon}
 	class="nav-item | px-00 radius-00 hover:bg-gray-300 transition"
 >
-	<a {href} class="flow-x flow-g-0 items-center" on:click>
+	<a {href} class="no-underline flow-x flow-g-0 items-center" on:click>
 		{#if icon}
 			<Icon name={icon} class="transition text-gray-400" />
 		{/if}
