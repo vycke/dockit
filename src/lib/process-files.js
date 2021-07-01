@@ -9,9 +9,9 @@ function getHeaders(html) {
 
 	elements.forEach((e) => {
 		const tokens = e
-			.replaceAll('</h2>', '')
-			.replaceAll('<h2', '')
-			.replaceAll('id="', '')
+			.replace(new RegExp('</h2>', 'g'), '')
+			.replace(new RegExp('<h2', 'g'), '')
+			.replace(new RegExp('id="', 'g'), '')
 			.split('">');
 		headers.push({ id: tokens[0].trim(), label: tokens[1].trim() });
 	});
