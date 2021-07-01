@@ -11,6 +11,10 @@
 		open = !open;
 	}
 
+	function close() {
+		open = false;
+	}
+
 	$: icon = open ? 'x' : 'menu';
 </script>
 
@@ -33,7 +37,7 @@
 	<ul role="list" class:visible={open} class="pt-2 flow-y flow-g-000 full-width bg-gray-200">
 		{#each Object.keys(docs) as category, i}
 			<NavGroup
-				on:click={toggle}
+				on:click={close}
 				{path}
 				icon={categories[category]}
 				title={category}

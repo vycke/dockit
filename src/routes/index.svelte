@@ -3,5 +3,8 @@
 </script>
 
 <Page title="home">
-	<div class="shadow bg-gray-100 radius-00 p-3">Hello</div>
+	<div class="flow-y flow-g-1">
+		<div class="shadow bg-gray-100 radius-00 p-1">Something</div>
+		<div class="shadow bg-gray-100 radius-00 p-1">Something</div>
+	</div>
 </Page>

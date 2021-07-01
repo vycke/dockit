@@ -23,8 +23,8 @@
 </script>
 
 <Page title="{doc.category} > {doc.title}">
-	<div class="panel-r panel-s-0 panel-w-3 panel-g-2">
-		<article class="center center-w-3 center-g-1 shadow bg-gray-100 flow-y flow-g-1 radius-00 py-2">
+	<div class="panel-r panel-s-00 panel-w-3 panel-g-1">
+		<article class="shadow bg-gray-100 flow-y flow-g-1 radius-00 py-2">
 			{@html doc.html}
 		</article>
 
@@ -61,10 +61,6 @@
 </Page>
 
 <style>
-	article {
-		max-width: var(--size-3);
-	}
-
 	a.header:hover {
 		font-weight: 600;
 	}
@@ -81,5 +77,10 @@
 		max-width: min(100%, var(--center-width));
 		padding-left: 0;
 		padding-right: 0;
+	}
+
+	:global(article > :not(pre)) {
+		padding-left: var(--spacing-1);
+		padding-right: var(--spacing-1);
 	}
 </style>

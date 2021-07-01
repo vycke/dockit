@@ -13,12 +13,19 @@
 	export let docs;
 </script>
 
-<div class="pancake-header" />
-<div class="panel-l panel-s-0 panel-w-2">
-	<Navigation {path} {docs} />
-	<slot />
+<div class="wrapper | flex-col justify-between">
+	<div class="panel-l panel-s-00 panel-w-2">
+		<Navigation {path} {docs} />
+		<slot />
+	</div>
+
+	<div class="p-0 text-00 text-right">
+		Made with ♥️ by <a href="https://crinkles.io">Crinkles</a>
+	</div>
 </div>
 
-<div class="p-0 text-00 text-right">
-	Made with ♥️ by <a href="https://crinkles.io">Crinkles</a>
-</div>
+<style>
+	.wrapper {
+		height: 100vh;
+	}
+</style>

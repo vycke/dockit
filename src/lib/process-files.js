@@ -8,11 +8,7 @@ function getHeaders(html) {
 	const elements = html.match(new RegExp('<h2(.*?)</h2>', 'g'));
 
 	elements.forEach((e) => {
-		const tokens = e
-			.replace(new RegExp('</h2>', 'g'), '')
-			.replace(new RegExp('<h2', 'g'), '')
-			.replace(new RegExp('id="', 'g'), '')
-			.split('">');
+		const tokens = e.replace('</h2>', '').replace('<h2', '').replace('id="', '').split('">');
 		headers.push({ id: tokens[0].trim(), label: tokens[1].trim() });
 	});
 
