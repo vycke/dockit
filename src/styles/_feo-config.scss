@@ -4,7 +4,7 @@ $colors: (
 	'gray-100': #fafafa,
 	'gray-200': #e5eaed,
 	'gray-300': #c7d1dc,
-	'gray-400': #a7b1bc,
+	'gray-400': #77818c,
 	'gray-500': #242f3a,
 	'gray-600': #0e141e,
 	'green-100': #7dc4a8,
@@ -37,7 +37,7 @@ $sizes: (
 	'0': 20rem,
 	'1': 25rem,
 	'2': 40rem,
-	'3': 52.5rem,
+	'3': 48.5rem,
 	'4': 70rem
 );
 
@@ -48,11 +48,30 @@ $font-families: (
 		"system-ui, -apple-system, blinkmacsystemfont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif"
 );
 
-@use '../../node_modules/@crinkles/feo/feo.scss' with (
-	$fluid: false,
-	$feo-colors: $colors,
-	$feo-font-sizes: $font-sizes,
-	$feo-spacing: $spacing,
-	$feo-sizes: $sizes,
-	$feo-font-families: $font-families
+$themes: (
+	'light': (
+		'accent': 'green-200',
+		'back': 'gray-200',
+		'back-secondary': 'gray-100',
+		'front': 'gray-600',
+		'hover': 'gray-300'
+	),
+	'dark': (
+		'accent': 'green-100',
+		'back': 'gray-500',
+		'back-secondary': 'gray-600',
+		'front': 'gray-100',
+		'hover': 'gray-400'
+	)
 );
+
+@use '../../node_modules/@crinkles/feo/feo.scss' with
+	(
+		$fluid: false,
+		$feo-colors: $colors,
+		$feo-font-sizes: $font-sizes,
+		$feo-spacing: $spacing,
+		$feo-sizes: $sizes,
+		$feo-font-families: $font-families,
+		$feo-themes: $themes
+	);

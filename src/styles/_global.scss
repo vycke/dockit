@@ -8,7 +8,7 @@ body {
 	color: var(--color-gray-600);
 	font-family: var(--sans-serif);
 	font-size: var(--text-0);
-	background-color: var(--color-gray-200);
+	background-color: var(--color-back);
 }
 
 // HEADINGS
@@ -39,5 +39,5 @@ a:visited,
 a:active {
 	touch-action: manipulation;
 	text-decoration: underline;
-	text-decoration-color: var(--color-green-200);
+	text-decoration-color: var(--color-accent);
 }

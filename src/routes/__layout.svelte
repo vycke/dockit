@@ -8,24 +8,20 @@
 <script>
 	import '../styles/index.scss';
 	import Navigation from '$lib/components/navigation/Navigation.svelte';
+	import { theme } from '$lib/store';
+	import { onMount } from 'svelte';
+
+	onMount(() => {
+		if ('theme' in localStorage) theme.update(() => localStorage.getItem('theme'));
+		else if (window.matchMedia('(prefers-color-scheme: light)').matches)
+			theme.update(() => 'light');
+	});
 
 	export let path = '';
 	export let docs;
 </script>
 
-<div class="wrapper | flex-col justify-between">
-	<div class="panel-l panel-s-00 panel-w-2">
-		<Navigation {path} {docs} />
-		<slot />
-	</div>
-
-	<div class="p-0 text-00 text-right">
-		Made with ♥️ by <a href="https://crinkles.io">Crinkles</a>
-	</div>
+<div class="bg-back panel-l panel-s-00 panel-w-2" data-theme={$theme}>
+	<Navigation {path} {docs} />
+	<slot />
 </div>
-
-<style>
-	.wrapper {
-		height: 100vh;
-	}
-</style>
