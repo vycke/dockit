@@ -18,8 +18,11 @@
 	}
 
 	function updateTheme() {
-		theme.update((t) => (t === 'light' ? 'dark' : 'light'));
-		localStorage.setItem('theme', $theme === 'light' ? 'dark' : 'light');
+		theme.update((t) => {
+			const newTheme = t === 'light' ? 'dark' : 'light';
+			localStorage.setItem('theme', newTheme);
+			return newTheme;
+		});
 	}
 
 	$: icon = open ? 'x' : 'menu';
