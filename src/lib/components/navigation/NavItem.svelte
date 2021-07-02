@@ -1,20 +1,20 @@
 <script>
-	import Icon from '../Icon.svelte';
+	import Icon from '../layout/Icon.svelte';
+	import { page } from '$app/stores';
 
 	export let label = '';
 	export let href = '/';
 	export let icon;
-	export let path;
 </script>
 
 <li
-	class:selected={href === path}
-	class:bg-hover={href === path}
+	class:selected={href === $page.path}
+	class:bg-hover={href === $page.path}
 	class:py-000={icon}
 	class:py-0000={!icon}
 	class="nav-item | px-00 radius-00 hover:bg-hover transition"
 >
-	<a {href} class="no-underline flow-x flow-g-0 items-center" on:click>
+	<a {href} class="no-underline flow-x flow-g-0 items-center" on:click sveltekit:prefetch>
 		{#if icon}
 			<Icon name={icon} class="transition text-gray-400" />
 		{/if}

@@ -1,11 +1,10 @@
 <script>
-	import Icon from '../Icon.svelte';
+	import Icon from '../layout/Icon.svelte';
 	import NavItem from './NavItem.svelte';
 
 	export let title;
 	export let icon;
 	export let items;
-	export let path;
 	let klass;
 	export { klass as class };
 </script>
@@ -16,7 +15,7 @@
 </li>
 
 {#each items as { label, href, icon }}
-	<NavItem {label} {href} {icon} {path} on:click />
+	<NavItem {label} {href} {icon} on:click />
 {/each}
 
 <style>

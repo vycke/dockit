@@ -32,10 +32,10 @@ export async function getDocs() {
 	let docs = {};
 
 	for (let i = 0; i < files.length; i++) {
-		const { slug, category, title } = await getDoc(files[i].split('.md')[0]);
+		const { slug, category, title, headers } = await getDoc(files[i].split('.md')[0]);
 
 		if (!docs[category]) docs[category] = [];
-		docs[category].push({ href: `/${slug}`, label: title, category });
+		docs[category].push({ href: `/${slug}`, label: title, category, headers });
 		docs[category].sort((a, b) => (a.label < b.label ? -1 : 1));
 	}
 

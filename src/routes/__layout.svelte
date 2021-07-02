@@ -12,16 +12,19 @@
 	import { onMount } from 'svelte';
 
 	onMount(() => {
-		if ('theme' in localStorage) theme.update(() => localStorage.getItem('theme'));
-		else if (window.matchMedia('(prefers-color-scheme: light)').matches)
-			theme.update(() => 'light');
+		let _theme = 'dark';
+		if ('theme' in localStorage) _theme = localStorage.getItem('theme');
+		else if (window.matchMedia('(prefers-color-scheme: light)').matches) _theme = 'light';
+
+		theme.update(() => _theme);
+		document.documentElement.dataset.theme = _theme;
 	});
 
 	export let path = '';
 	export let docs;
 </script>
 
-<div class="full-height bg-back panel-l panel-s-00 panel-w-2" data-theme={$theme}>
+<div class="full-height bg-back panel-l panel-s-0 panel-w-3">
 	<Navigation {path} {docs} />
 	<slot />
 </div>

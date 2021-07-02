@@ -1,36 +1,25 @@
 <script>
 	import { categories, name, source, version } from '$lib/constants';
-	import Icon from '../Icon.svelte';
-	import Switch from '../Switch.svelte';
+	import search from '$lib/search';
+	import Icon from '../layout/Icon.svelte';
 	import NavGroup from './NavGroup.svelte';
-	import { theme } from '$lib/store';
+	import ThemeSwitch from './ThemeSwitch.svelte';
 
-	export let path = '';
 	export let docs;
 
 	let open = false;
-	function toggle() {
-		open = !open;
-	}
-
-	function close() {
-		open = false;
-	}
-
-	function updateTheme() {
-		theme.update((t) => {
-			const newTheme = t === 'light' ? 'dark' : 'light';
-			localStorage.setItem('theme', newTheme);
-			return newTheme;
-		});
-	}
-
+	let term = '';
 	$: icon = open ? 'x' : 'menu';
+
+	$: filteredDocs = search(docs, term);
 </script>
 
 <nav class="p-1 flex-col items-start bg-back text-front" data-open={open}>
 	<div class="flex-row items-center full-width">
-		<button class="text-front flex-grow text-left flex-row items-center" on:click={toggle}>
+		<button
+			class="text-front flex-grow text-left flex-row items-center"
+			on:click={() => (open = !open)}
+		>
 			<Icon name={icon} />
 		</button>
 		<div class="flex-row items-center">
@@ -45,23 +34,19 @@
 	</div>
 
 	<ul role="list" class="pt-2 flow-y flow-g-000 full-width bg-back">
-		{#each Object.keys(docs) as category, i}
+		<input bind:value={term} placeholder="Search..." class="mb-2" />
+
+		{#each Object.keys(filteredDocs) as category, i}
 			<NavGroup
-				on:click={close}
-				{path}
+				on:click={() => (open = false)}
 				icon={categories[category]}
 				title={category}
-				items={docs[category]}
+				items={filteredDocs[category]}
 				class={i > 0 ? 'mt-2' : ''}
 			/>
 		{/each}
 
-		<Switch
-			checked={$theme === 'dark'}
-			label="Dark mode?"
-			class="flow-grow mt-1"
-			on:click={updateTheme}
-		/>
+		<ThemeSwitch class={open ? '' : 'flow-grow'} />
 		<li class="text-00 text-left">
 			Made with ♥️ by <a href="https://crinkles.io">Crinkles</a>
 		</li>
@@ -79,7 +64,7 @@
 		list-style: none;
 	}
 
-	@media (min-width: 42rem) {
+	@media (min-width: 50rem) {
 		nav {
 			height: 100vh;
 			overflow-y: auto;
@@ -94,7 +79,7 @@
 		}
 	}
 
-	@media (max-width: 42rem) {
+	@media (max-width: 50rem) {
 		nav {
 			border-bottom: 1px solid var(--color-hover);
 		}
@@ -110,7 +95,6 @@
 			max-height: 0;
 			overflow-y: hidden;
 			width: 100%;
-			transition: all 100ms ease-in-out;
 		}
 
 		nav[data-open='true'] ul {

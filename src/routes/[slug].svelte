@@ -14,8 +14,8 @@
 </script>
 
 <script>
-	import Icon from '$lib/components/Icon.svelte';
-	import Page from '$lib/components/Page.svelte';
+	import Icon from '$lib/components/layout/Icon.svelte';
+	import Page from '$lib/components/layout/Page.svelte';
 	import { categories } from '$lib/constants';
 	export let doc;
 
