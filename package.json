@@ -1,6 +1,6 @@
 {
   "name": "dockit",
-  "version": "0.0.1",
+  "version": "0.1.0",
   "license": "MIT",
   "scripts": {
     "dev": "svelte-kit dev",
@@ -20,6 +20,7 @@
     "sass": "^1.35.1",
     "svelte": "^3.34.0"
   },
+  "repository": "https://github.com/crinklesio/dockit.git",
   "type": "module",
   "dependencies": {
     "@crinkles/feo": "^1.12.4",

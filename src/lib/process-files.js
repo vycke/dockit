@@ -29,18 +29,12 @@ export async function getDoc(slug) {
 export async function getDocs() {
 	const _path = resolve('docs');
 	const files = await fs.readdir(_path);
-	let docs = {};
+	const docs = [];
 
 	for (let i = 0; i < files.length; i++) {
-		const { slug, category, title, headers } = await getDoc(files[i].split('.md')[0]);
-
-		if (!docs[category]) docs[category] = [];
-		docs[category].push({ href: `/${slug}`, label: title, category, headers });
-		docs[category].sort((a, b) => (a.label < b.label ? -1 : 1));
+		const { slug, category, title, headers, order } = await getDoc(files[i].split('.md')[0]);
+		docs.push({ href: `/${slug}`, label: title, category, headers, order });
 	}
 
-	// sort based on keys
-	return Object.keys(docs)
-		.sort()
-		.reduce((r, k) => ((r[k] = docs[k]), r), {});
+	return docs;
 }

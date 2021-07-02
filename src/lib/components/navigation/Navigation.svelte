@@ -1,6 +1,6 @@
 <script>
 	import { categories, name, source, version } from '$lib/constants';
-	import search from '$lib/search';
+	import { search, group } from '$lib/search';
 	import Icon from '../layout/Icon.svelte';
 	import NavGroup from './NavGroup.svelte';
 	import ThemeSwitch from './ThemeSwitch.svelte';
@@ -11,7 +11,7 @@
 	let term = '';
 	$: icon = open ? 'x' : 'menu';
 
-	$: filteredDocs = search(docs, term);
+	$: filteredDocs = group(search(docs, term));
 </script>
 
 <nav class="p-1 flex-col items-start bg-back text-front" data-open={open}>

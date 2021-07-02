@@ -18,7 +18,7 @@
 		{#if icon}
 			<Icon name={icon} class="transition text-gray-400" />
 		{/if}
-		<span>{label}</span>
+		<span class="no-underline">{label}</span>
 	</a>
 </li>
 
@@ -26,7 +26,8 @@
 	:global(.nav-item:hover svg) {
 		color: var(--color-gray-500);
 	}
-	:global(.nav-item:hover span) {
+
+	.nav-item:hover span {
 		font-weight: 600;
 	}
 
