@@ -24,7 +24,11 @@
 	export let docs;
 </script>
 
-<div class="full-height bg-back panel-l panel-s-0 panel-w-3">
+<svelte:head>
+	<meta name="color-scheme" content={$theme} />
+</svelte:head>
+
+<div class="bg-back panel-l panel-s-0 panel-w-3">
 	<Navigation {path} {docs} />
 	<slot />
 </div>
