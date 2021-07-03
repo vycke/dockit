@@ -1,4 +1,6 @@
 <script context="module">
+	import { group } from '$lib/search';
+
 	export async function load({ page, fetch }) {
 		const res = await fetch('/api/docsOverview.json');
 		const docs = await res.json();
