@@ -3,19 +3,8 @@
 
 	export async function load({ page, fetch }) {
 		const res = await fetch('/api/docsOverview.json');
-		try {
-			const docs = await res.json();
-			if (page.path === '/') {
-				const href = group(docs)[Object.keys(group(docs))[0]][0].href;
-				await fetch(href);
-				return { redirect: href, status: 301 };
-			}
-			return { props: { path: page.path, docs } };
-		} catch (e) {
-			console.log(res);
-			console.log(e);
-			return { error: e.message };
-		}
+		const docs = await res.json();
+		return { props: { path: page.path, docs } };
 	}
 </script>
 
@@ -24,6 +13,10 @@
 	import Navigation from '$lib/components/navigation/Navigation.svelte';
 	import { theme } from '$lib/store';
 	import { onMount } from 'svelte';
+	import { goto } from '$app/navigation';
+
+	export let path = '';
+	export let docs;
 
 	onMount(() => {
 		let _theme = 'dark';
@@ -32,10 +25,12 @@
 
 		theme.update(() => _theme);
 		document.documentElement.dataset.theme = _theme;
-	});
 
-	export let path = '';
-	export let docs;
+		if (!path || path === '/') {
+			const href = group(docs)[Object.keys(group(docs))[0]][0].href;
+			goto(href);
+		}
+	});
 </script>
 
 <svelte:head>

@@ -16,14 +16,20 @@ function getHeaders(html) {
 }
 
 export async function getDoc(slug) {
-	const _path = resolve('docs', slug + '.md');
+	const _path = resolve('docs', slug);
 	const src = await fs.readFile(_path, 'utf8');
 	const stats = await fs.stat(_path);
 	const { body, ...matter } = fm(src);
 	const html = renderer(body);
 	const headers = getHeaders(html);
 
-	return { slug, html, headers, modifiedAt: stats.mtime, ...matter.attributes };
+	return {
+		slug: slug.replace('.md', ''),
+		html,
+		headers,
+		modifiedAt: stats.mtime,
+		...matter.attributes
+	};
 }
 
 export async function getDocs() {
@@ -32,7 +38,7 @@ export async function getDocs() {
 	const docs = [];
 
 	for (let i = 0; i < files.length; i++) {
-		const { slug, category, title, headers, order } = await getDoc(files[i].split('.md')[0]);
+		const { slug, category, title, headers, order } = await getDoc(files[i]);
 		docs.push({ href: `/${slug}`, label: title, category, headers, order });
 	}
 
