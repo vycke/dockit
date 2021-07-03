@@ -10,9 +10,3 @@
 	<h1 class="my-1">{title}</h1>
 	<slot />
 </main>
-
-<style>
-	h1 {
-		text-transform: capitalize;
-	}
-</style>

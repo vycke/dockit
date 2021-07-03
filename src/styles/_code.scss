@@ -76,6 +76,7 @@ pre > code {
 	tab-size: 2;
 	font-size: var(--text-00);
 	background-color: var(--color-gray-500);
+	outline: 1px solid var(--color-hover);
 	// fix for increased font-size safari iOS
 	-webkit-text-size-adjust: none;
 	padding: var(--spacing-1);

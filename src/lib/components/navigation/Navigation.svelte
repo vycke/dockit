@@ -54,6 +54,10 @@
 </nav>
 
 <style>
+	.name {
+		text-transform: capitalize;
+	}
+
 	nav {
 		position: sticky;
 		top: 0;

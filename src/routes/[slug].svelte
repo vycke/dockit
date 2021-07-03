@@ -24,13 +24,13 @@
 
 <Page title="{doc.category} > {doc.title}">
 	<div class="panel-r panel-s-00 panel-w-3 panel-g-1">
-		<article class="border-hover border-w-1 bg-back-secondary flow-y flow-g-1 radius-00 py-2">
+		<article class="border-hover border-w-1 bg-back-secondary flow-y flow-g-1 radius-00 py-2 mb-1">
 			{@html doc.html}
 		</article>
 
-		<aside class="p-1 flex-col">
+		<aside class="p-1 flex-col mb-1">
 			{#if doc.headers.length}
-				<div class="mb-3 flex-col">
+				<div class="mb-1 flex-col">
 					<span class="monospace text-00 uppercase text-accent">Outline:</span>
 					{#each doc.headers as header}
 						<a class="header" href="#{header.id}">» {header.label}</a>

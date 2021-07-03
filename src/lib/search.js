@@ -1,5 +1,8 @@
+import { categories } from './constants';
+
 export function group(docs) {
 	let _docs = {};
+	Object.keys(categories).forEach((c) => (_docs[c] = []));
 
 	for (let i = 0; i < docs.length; i++) {
 		const { category } = docs[i];
@@ -12,11 +15,8 @@ export function group(docs) {
 		});
 	}
 
-	return Object.keys(_docs)
-		.sort()
-		.reduce((r, k) => ((r[k] = _docs[k]), r), {});
+	return _docs;
 }
-
 export function search(docs, search = '') {
 	if (!search) return docs;
 
