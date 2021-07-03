@@ -1,6 +1,6 @@
 import { categories } from './constants';
 
-export function group(docs) {
+export function group(docs = []) {
 	let _docs = {};
 	Object.keys(categories).forEach((c) => (_docs[c] = []));
 

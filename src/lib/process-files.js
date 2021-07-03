@@ -28,7 +28,7 @@ export async function getDoc(slug) {
 
 export async function getDocs() {
 	const _path = resolve('docs');
-	const files = await fs.readdir(_path);
+	const files = (await fs.readdir(_path)) || [];
 	const docs = [];
 
 	for (let i = 0; i < files.length; i++) {
