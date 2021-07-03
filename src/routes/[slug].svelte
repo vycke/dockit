@@ -52,7 +52,7 @@
 				<span class="monospace text-00 uppercase mt-1 text-accent">Source:</span>
 				<div class="flex-row items-center">
 					<Icon class="text-gray-400" name="github" attrs={{ height: 18 }} />
-					<a class="ml-00" href={doc.source}>{doc.source}</a>
+					<a class="ml-00" href={doc.source}>https://github.com</a>
 				</div>
 			{/if}
 			<span class="monospace text-00 uppercase mt-1 text-accent">Last modified:</span>

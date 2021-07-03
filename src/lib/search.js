@@ -10,7 +10,9 @@ export function group(docs = []) {
 		if (!_docs[category]) _docs[category] = [];
 		_docs[category].push(docs[i]);
 		_docs[category].sort((a, b) => {
-			if (a.order || b.order) return a.order < b.order ? -1 : 1;
+			if (a.order && !b.order) return -1;
+			if (!a.order && b.order) return 1;
+			if (a.order && b.order) return a.order < b.order ? -1 : 1;
 			return a.label < b.label ? -1 : 1;
 		});
 	}
