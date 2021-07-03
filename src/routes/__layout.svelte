@@ -7,6 +7,7 @@
 			const docs = await res.json();
 			if (page.path === '/') {
 				const href = group(docs)[Object.keys(group(docs))[0]][0].href;
+				await fetch(href);
 				return { redirect: href, status: 301 };
 			}
 			return { props: { path: page.path, docs } };
