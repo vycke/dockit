@@ -14,6 +14,7 @@
 		} catch (e) {
 			console.log(res);
 			console.log(e);
+			return { error: e.message };
 		}
 	}
 </script>
