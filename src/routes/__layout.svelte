@@ -12,7 +12,7 @@
 	import '../styles/index.scss';
 	import Navigation from '$lib/components/navigation/Navigation.svelte';
 	import { theme } from '$lib/store';
-	import { onMount } from 'svelte';
+	import { onMount, afterUpdate, beforeUpdate } from 'svelte';
 	import { goto } from '$app/navigation';
 
 	export let path = '';
@@ -25,8 +25,10 @@
 
 		theme.update(() => _theme);
 		document.documentElement.dataset.theme = _theme;
+	});
 
-		if (!path || path === '/') {
+	beforeUpdate(() => {
+		if (path === '' || path === '/') {
 			const href = group(docs)[Object.keys(group(docs))[0]][0].href;
 			goto(href);
 		}
