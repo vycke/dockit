@@ -1,9 +1,9 @@
 import pkg from '../../package.json';
 
 export const categories = {
-	layout: 'layout',
-	'getting-started': 'chevrons-right',
-	utilities: 'tool'
+	'Group 1': 'circle',
+	'Group 2': 'circle',
+	'Group 3': 'circle'
 };
 
 export const name = pkg.name;
