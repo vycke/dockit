@@ -5,12 +5,19 @@
 		const res = await fetch('/api/docsOverview.json');
 		const docs = await res.json();
 
-		if (page.path === '/') {
-			const href = group(docs)[Object.keys(group(docs))[0]][0].href;
-			return { redirect: href, status: 301 };
+		if (res.ok) {
+			if (page.path === '/') {
+				const href = group(docs)[Object.keys(group(docs))[0]][0].href;
+				return { redirect: href, status: 301 };
+			}
+
+			return { props: { path: page.path, docs } };
 		}
 
-		return { props: { path: page.path, docs } };
+		return {
+			status: res.status,
+			error: new Error(JSON.stringify(res))
+		};
 	}
 </script>
 
