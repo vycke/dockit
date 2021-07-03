@@ -29,10 +29,14 @@
 		</article>
 
 		<aside class="p-1 flex-col">
-			<span class="monospace text-00 uppercase text-accent">Outline:</span>
-			{#each doc.headers as header}
-				<a class="header" href="#{header.id}">» {header.label}</a>
-			{/each}
+			{#if doc.headers.length}
+				<div class="mb-3 flex-col">
+					<span class="monospace text-00 uppercase text-accent">Outline:</span>
+					{#each doc.headers as header}
+						<a class="header" href="#{header.id}">» {header.label}</a>
+					{/each}
+				</div>
+			{/if}
 
 			<span class="monospace text-00 uppercase text-accent mt-3">Category:</span>
 			<div class="flex-row items-center">
@@ -67,20 +71,5 @@
 
 	.capitalize {
 		text-transform: capitalize;
-	}
-
-	:global(article h2 + p) {
-		margin-top: var(--spacing-00) !important;
-	}
-
-	:global(article img) {
-		max-width: min(100%, var(--center-width));
-		padding-left: 0;
-		padding-right: 0;
-	}
-
-	:global(article > :not(pre)) {
-		padding-left: var(--spacing-1);
-		padding-right: var(--spacing-1);
 	}
 </style>

@@ -5,7 +5,7 @@ import renderer from '$lib/renderer';
 
 function getHeaders(html) {
 	const headers = [];
-	const elements = html.match(new RegExp('<h2(.*?)</h2>', 'g'));
+	const elements = html.match(new RegExp('<h2(.*?)</h2>', 'g')) || [];
 
 	elements.forEach((e) => {
 		const tokens = e.replace('</h2>', '').replace('<h2', '').replace('id="', '').split('">');

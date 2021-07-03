@@ -77,3 +77,22 @@ input:focus {
 	border: 1px solid var(--color-accent);
 	outline: none;
 }
+
+article h2 + p {
+	margin-top: var(--spacing-00) !important;
+}
+
+article img {
+	max-width: min(100%, var(--center-width));
+	padding-left: 0;
+	padding-right: 0;
+}
+
+article > :not(pre) {
+	padding-left: var(--spacing-1);
+	padding-right: var(--spacing-1);
+}
+
+article li {
+	margin-left: var(--spacing-2);
+}

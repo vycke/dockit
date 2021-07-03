@@ -46,8 +46,8 @@
 			/>
 		{/each}
 
-		<ThemeSwitch class={open ? '' : 'flow-grow'} />
-		<li class="text-00 text-left">
+		<ThemeSwitch class={open ? 'mt-2' : 'flow-grow pt-2'} />
+		<li class="text-00 text-left py-1">
 			Made with ♥️ by <a href="https://crinkles.io">Crinkles</a>
 		</li>
 	</ul>

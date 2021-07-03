@@ -15,9 +15,4 @@
 	}
 </script>
 
-<Switch
-	checked={$theme === 'dark'}
-	label="Dark mode?"
-	class="mt-2 {klass}"
-	on:click={updateTheme}
-/>
+<Switch checked={$theme === 'dark'} label="Dark mode?" class={klass} on:click={updateTheme} />
