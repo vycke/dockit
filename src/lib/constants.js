@@ -9,3 +9,4 @@ export const categories = {
 export const name = pkg.name;
 export const version = pkg.version;
 export const source = pkg.repository;
+export const description = `Complete documentation for ${pkg.name} (v${pkg.version})`;

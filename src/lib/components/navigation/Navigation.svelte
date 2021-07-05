@@ -2,16 +2,20 @@
 	import { categories, name, source, version } from '$lib/constants';
 	import { search, group } from '$lib/search';
 	import Icon from '../layout/Icon.svelte';
-	import NavGroup from './NavGroup.svelte';
+	import NavItem from './NavItem.svelte';
 	import ThemeSwitch from './ThemeSwitch.svelte';
+	import { page } from '$app/stores';
+	import { debug } from 'svelte/internal';
 
+	// Properties
 	export let docs;
-
+	// Internal statae
 	let open = false;
 	let term = '';
+	// Derived state
 	$: icon = open ? 'x' : 'menu';
-
 	$: filteredDocs = group(search(docs, term));
+	$: path = $page.path === '' ? '/' : $page.path;
 </script>
 
 <nav class="p-1 flex-col items-start bg-back text-front" data-open={open}>
@@ -37,13 +41,20 @@
 		<input bind:value={term} placeholder="Search..." class="mb-2" />
 
 		{#each Object.keys(filteredDocs) as category, i}
-			<NavGroup
-				on:click={() => (open = false)}
-				icon={categories[category]}
-				title={category}
-				items={filteredDocs[category]}
-				class={i > 0 ? 'mt-2' : ''}
-			/>
+			<li class:mt-2={i > 0} class="flow-x flow-g-00 items-center pb-000">
+				<Icon name={categories[category] || 'circle'} class="text-accent" attrs={{ height: 20 }} />
+				<span class="text-00 monospace uppercase text-accent">{category}</span>
+			</li>
+
+			{#each filteredDocs[category] as { title, slug, icon }, j}
+				<NavItem
+					{title}
+					href="/{slug}"
+					{icon}
+					on:click={() => (open = false)}
+					selected={(i === 0 && j === 0 && path === '/') || path === `/${slug}`}
+				/>
+			{/each}
 		{/each}
 
 		<ThemeSwitch class={open ? 'mt-2' : 'flow-grow pt-2'} />
@@ -56,6 +67,10 @@
 <style>
 	.name {
 		text-transform: capitalize;
+	}
+
+	li {
+		border-bottom: 1px solid var(--color-hover);
 	}
 
 	nav {

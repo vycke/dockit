@@ -13,13 +13,14 @@ export function group(docs = []) {
 			if (a.order && !b.order) return -1;
 			if (!a.order && b.order) return 1;
 			if (a.order && b.order) return a.order < b.order ? -1 : 1;
-			return a.label < b.label ? -1 : 1;
+			return a.title < b.title ? -1 : 1;
 		});
 	}
 
 	return _docs;
 }
-export function search(docs, search = '') {
+
+export function search(docs = [], search = '') {
 	if (!search) return docs;
 
 	const tokens = search
@@ -30,7 +31,7 @@ export function search(docs, search = '') {
 	let _filteredDocs = docs.filter((d) => {
 		return tokens.every(
 			(t) =>
-				d.label?.toLowerCase().includes(t) ||
+				d.title?.toLowerCase().includes(t) ||
 				d.headers?.some((h) => h.label?.toLowerCase().includes(t))
 		);
 	});

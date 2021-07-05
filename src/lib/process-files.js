@@ -16,7 +16,7 @@ function getHeaders(html) {
 }
 
 export async function getDoc(slug) {
-	const _path = resolve('docs', slug);
+	const _path = resolve('content', slug);
 	const src = await fs.readFile(_path, 'utf8');
 	const stats = await fs.stat(_path);
 	const { body, ...matter } = fm(src);
@@ -33,13 +33,13 @@ export async function getDoc(slug) {
 }
 
 export async function getDocs() {
-	const _path = resolve('docs');
+	const _path = resolve('content');
 	const files = (await fs.readdir(_path)) || [];
 	const docs = [];
 
 	for (let i = 0; i < files.length; i++) {
 		const { slug, category, title, headers, order } = await getDoc(files[i]);
-		docs.push({ href: `/${slug}`, label: title, category, headers, order });
+		docs.push({ slug, title, category, headers, order });
 	}
 
 	return docs;

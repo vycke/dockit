@@ -1,15 +1,15 @@
 <script>
 	import * as feather from 'feather-icons';
-	let className = '';
-	export { className as class };
+	let klass = '';
+	export { klass as class };
 
 	export let name,
 		attrs = undefined;
 
-	$: svg = name ? feather.icons[name].toSvg({ ...attrs, class: className }) : '';
+	$: svg = name ? feather.icons[name].toSvg({ ...attrs, class: klass }) : '';
 </script>
 
-<span class={className}>{@html svg}</span>
+<span class={klass}>{@html svg}</span>
 
 <style>
 	span {
