@@ -69,7 +69,7 @@ $themes: (
 
 @use '../../node_modules/@crinkles/feo/feo.scss' with
 	(
-		$fluid: false,
+		$feo-fluid: false,
 		$feo-colors: $colors,
 		$feo-font-sizes: $font-sizes,
 		$feo-spacing: $spacing,
