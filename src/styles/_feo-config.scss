@@ -7,32 +7,11 @@ $colors: (
 	'gray-400': #77818c,
 	'gray-500': #242f3a,
 	'gray-600': #0e141e,
-	'green-100': #7dc4a8,
-	'green-200': #0e6469
+	'red': #fc0659,
+	'blue': #5765fc
 );
 
-// Typography system (golden ratio)
-$font-sizes: (
-	'0': 1,
-	'00': 0.8,
-	'000': 0.64,
-	'1': 1.25,
-	'2': 1.563,
-	'3': 1.953
-);
-
-$spacing: (
-	'none': 0,
-	'0': 1,
-	'00': 0.75,
-	'000': 0.5,
-	'0000': 0.25,
-	'1': 1.25,
-	'2': 2,
-	'3': 3
-);
-
-$sizes: (
+$breakpoints: (
 	'00': 15rem,
 	'0': 20rem,
 	'1': 25rem,
@@ -41,16 +20,9 @@ $sizes: (
 	'4': 65rem
 );
 
-$font-families: (
-	monospace: "Inconsolata, Menlo, Monaco, Consolas, 'Courier New', monospace",
-	serif: 'Georgia, serif',
-	sans-serif:
-		"system-ui, -apple-system, blinkmacsystemfont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif"
-);
-
 $themes: (
 	'light': (
-		'accent': 'green-200',
+		'accent': 'blue',
 		'back': 'gray-200',
 		'back-secondary': 'gray-100',
 		'code': 'gray-500',
@@ -58,7 +30,7 @@ $themes: (
 		'hover': 'gray-300'
 	),
 	'dark': (
-		'accent': 'green-100',
+		'accent': 'red',
 		'back': 'gray-600',
 		'back-secondary': 'gray-600',
 		'code': 'gray-500',
@@ -69,11 +41,7 @@ $themes: (
 
 @use '../../node_modules/@crinkles/feo/feo.scss' with
 	(
-		$feo-fluid: false,
 		$feo-colors: $colors,
-		$feo-font-sizes: $font-sizes,
-		$feo-spacing: $spacing,
-		$feo-sizes: $sizes,
-		$feo-font-families: $font-families,
+		$feo-breakpoints: $breakpoints,
 		$feo-themes: $themes
 	);
