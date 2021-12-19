@@ -825,7 +825,7 @@
   "resolved" "https://registry.npmjs.org/prism-svelte/-/prism-svelte-0.4.7.tgz"
   "version" "0.4.7"
 
-"prismjs@^1.24.0":
+"prismjs@^1.25.0":
   "integrity" "sha512-WCjJHl1KEWbnkQom1+SzftbtXMKQoezOCYs5rECqMN+jP+apI7ftoflyqigqzopSO3hMhTEb0mFClA8lkolgEg=="
   "resolved" "https://registry.npmjs.org/prismjs/-/prismjs-1.25.0.tgz"
   "version" "1.25.0"
