@@ -23,11 +23,6 @@
     chalk "^2.0.0"
     js-tokens "^4.0.0"
 
-"@crinkles/feo@^2.1.0":
-  version "2.1.0"
-  resolved "https://registry.yarnpkg.com/@crinkles/feo/-/feo-2.1.0.tgz#dc47e4b0b5df80208f010ae41c645c4e7c3a64b2"
-  integrity sha512-A2l14SVhXdBEa+AIdVBP9crr2Ix05U0mpr+r6Jt5JYhARRCM3kdLnMDeTn9gHV18Y0s+4G79XM9qMz25b4ddkA==
-
 "@eslint/eslintrc@^0.4.2":
   version "0.4.2"
   resolved "https://registry.yarnpkg.com/@eslint/eslintrc/-/eslintrc-0.4.2.tgz#f63d0ef06f5c0c57d76c4ab5f63d3835c51b0179"
@@ -163,6 +158,11 @@ astral-regex@^2.0.0:
   version "2.0.0"
   resolved "https://registry.yarnpkg.com/astral-regex/-/astral-regex-2.0.0.tgz#483143c567aeed4785759c0865786dc77d7d2e31"
   integrity sha512-Z7tMw1ytTXt5jqMcOP+OQteU1VuNK9Y02uuJtKQ1Sv69jXQKKg5cibLwGJow8yzZP+eAc18EmLGPal0bp36rvQ==
+
+bace-css@^1.0.0:
+  version "1.0.0"
+  resolved "https://registry.yarnpkg.com/bace-css/-/bace-css-1.0.0.tgz#65382bc8bd18f578366386341f6ff3bc8cad3b24"
+  integrity sha512-eoW3O/o5Z8+HFSQTf6/3LNootcRVWsuVXPKvNmBXMeNgeYUjSzmfK47do5uLUpnI9hBgAlkBX/1Hb9q7L6L8LA==
 
 balanced-match@^1.0.0:
   version "1.0.2"

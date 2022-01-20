@@ -3,8 +3,15 @@
 *******/
 html,
 body {
-	color: var(--color-gray-600);
+	color: var(--color-gray-5);
 	background-color: var(--color-back);
+	font-family: var(--sans-serif);
+}
+
+h1,
+h2,
+h3 {
+	font-weight: 600;
 }
 
 // LINKS
@@ -43,7 +50,7 @@ blockquote > p {
 
 input {
 	width: 100%;
-	line-height: var(--lb-00);
+	line-height: var(--lh-00);
 	background-color: var(--color-back-secondary);
 	border: 1px solid var(--color-hover);
 	border-radius: var(--size-000);
